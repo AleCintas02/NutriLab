@@ -1,0 +1,152 @@
+/* CSS para el componente Welcome */
+* {
+    font-family: "Oswald", sans-serif;
+}
+
+.fondo {
+    position: relative;
+    height: 100vh; /* Altura del div igual a la altura de la pantalla */
+    background-image: url("../img/fondo.jpg");
+    background-size: cover; /* La imagen cubre todo el div */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fondo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Overlay oscuro */
+    z-index: 1; /* Debería estar por debajo del contenido */
+}
+
+.contenedor {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease; /* Transición para el desplazamiento */
+}
+
+.contendor-titulo-subtitulo {
+    position: relative; /* Asegura que el contenido esté por encima del overlay */
+    z-index: 2; /* Coloca el contenido por encima del overlay */
+    color: white; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.typewriter {
+    font-size: 3rem;
+    font-weight: bold;
+    font-optical-sizing: auto;
+    white-space: nowrap; 
+    overflow: hidden; 
+    animation: fadeInUp 2s ease-out, shadowPulse 2s ease-in-out infinite;
+}
+
+.typewriter-delay {
+    font-size: 1.7rem;
+    font-optical-sizing: auto;
+    white-space: nowrap; 
+    overflow: hidden; 
+    border-right: 0.1em solid orange; /* Reducir el grosor del cursor */
+    animation: typing 10s steps(50, end) 1s infinite, blink-caret 0.75s step-end infinite;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shadowPulse {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    40% { width: 100%; }
+    60% { width: 100%; }
+    100% { width: 0; }
+}
+
+@keyframes blink-caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: orange; }
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button-63 {
+  align-items: center;
+  background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-top: 40px;
+  animation: scaleAnimation 3s infinite; /* Animación añadida */
+}
+
+.button-63:active,
+.button-63:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-63 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
